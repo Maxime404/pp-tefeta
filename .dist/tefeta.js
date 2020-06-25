@@ -1,4 +1,9 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const Maper_1 = __importDefault(require("./src/Maper"));
 const path = require('path');
 const fs = require('fs');
 const args = process.argv.slice(2);
@@ -14,6 +19,6 @@ if (!fs.existsSync(filename)) {
 }
 //Get content of filename 
 const content = fs.readFileSync(filename, 'utf-8');
-const linesContent = content.split('\n');
-const mapfile = linesContent[0].length;
+const maper = new Maper_1.default(content);
+maper.solveMap();
 process.exit(0);

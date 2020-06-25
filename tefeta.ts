@@ -1,14 +1,16 @@
+import Maper from './src/Maper';
+
 const path = require('path');
 const fs = require('fs');
 
-const args = process.argv.slice(2);
+const args: string[] = process.argv.slice(2);
 
 if (args.length !== 1) {
     console.log(`usage: node ${__filename.split('/').pop()} <MAP_FILENAME>`);
     process.exit(0);
 }
 
-const filename = args[0];
+const filename: string = args[0];
 
 //Check if filename exist
 if (!fs.existsSync(filename)) {
@@ -17,12 +19,10 @@ if (!fs.existsSync(filename)) {
 }
 
 //Get content of filename 
-const content = fs.readFileSync(filename, 'utf-8');
+const content: string = fs.readFileSync(filename, 'utf-8');
 
-const linesContent = content.split('\n');
+const maper: Maper = new Maper(content);
 
-const mapfile = linesContent[0].length;
-
-const lel = "";
+maper.solveMap();
 
 process.exit(0);

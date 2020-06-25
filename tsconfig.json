@@ -11,5 +11,5 @@
     "esModuleInterop": true
   },
   "exclude": ["node_modules"],
-  "include": ["tefeta.ts"]
+  "include": ["tefeta.ts", "./src"]
 }
